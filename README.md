@@ -1,11 +1,10 @@
 # MDBrainT
 DNA methylation deconvolution for brain TME
 
-CIBERSORT
-The goal of CIBERSORT is to run the CIBERSORT flow.
+
 
 Installation
-You can install the released version of CIBERSORT from github with:
+You can install the released version of MDBrainT from github with:
 
 ``` r
 install.packages("devtools")
