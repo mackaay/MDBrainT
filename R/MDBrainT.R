@@ -15,18 +15,18 @@
 #'   sig_matrix <- system.file("extdata", "brain_sig_matrix.txt", package = "MDBrainT")
 #'   mixture_file <- system.file("extdata", "example_brain.txt", package = "MDBrainT")
 #'   celltype_anno <- system.file("extdata", "celltype_anno.txt", package = "MDBrainT")
-#'   results <- TMEdeconvolute(sig_matrix, mixture_file, cell_annotation = celltype_anno)
+#'   results <- MDBrainT(sig_matrix, mixture_file, cell_annotation = celltype_anno)
 #'   ## example 2
 #'   data(brain_sig_matrix)
 #'   data(example_brain)
 #'   data(celltype_anno)
-#'   results <- TMEdeconvolute(sig_matrix = brain_sig_matrix, mixture_file = example_brain, cell_annotation = celltype_anno)
+#'   results <- MDBrainT(sig_matrix = brain_sig_matrix, mixture_file = example_brain, cell_annotation = celltype_anno)
 #' }
 
 require("nnls")
 
 
-TMEdeconvolute <- function(sig_matrix, mixture_file, cell_annotation){
+MDBrainT <- function(sig_matrix, mixture_file, cell_annotation){
   
   #read in data
   if (is.character(sig_matrix)) {
@@ -80,10 +80,9 @@ TMEdeconvolute <- function(sig_matrix, mixture_file, cell_annotation){
     #print("merge Done")
   }
   rownames(decon.df) <- colnames(X[,])
-  decon.all.df <- decon.df
-  colnames(decon.all.df)  <- colnames(bVals_decon)
-  decon.all.df <- round(decon.all.df, 4)
-  decon.all.df
+  colnames(decon.df)  <- colnames(bVals_decon)
+  decon.df <- round(decon.df, 4)
+  decon.df
 
 }
 
