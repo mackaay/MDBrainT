@@ -9,10 +9,12 @@ You can install the released version of MDBrainT from github with:
 ``` r
 install.packages("devtools")
 devtools::install_github("mackaay/MDBrainT")
+install.packages("nnls")
 ```
 
 Example
 ``` r
+library(nnls)
 library(MDBrainT)
 data(brain_sig_matrix)
 data(example_brain)
